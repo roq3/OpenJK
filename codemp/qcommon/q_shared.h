@@ -24,13 +24,15 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
+#include "game/config.h"
+
 // q_shared.h -- included first by ALL program modules.
 // A user mod should never modify this file
 
-#define PRODUCT_NAME			"openjk"
+#define PRODUCT_NAME CONFIG_GAMENAME_LOWER
 
-#define CLIENT_WINDOW_TITLE "OpenJK (MP)"
-#define CLIENT_CONSOLE_TITLE "OpenJK Console (MP)"
+#define CLIENT_WINDOW_TITLE CONFIG_GAMENAME" (MP)"
+#define CLIENT_CONSOLE_TITLE CONFIG_GAMENAME" Console (MP)"
 #define HOMEPATH_NAME_UNIX "openjk"
 #define HOMEPATH_NAME_WIN "OpenJK"
 #define HOMEPATH_NAME_MACOSX HOMEPATH_NAME_WIN

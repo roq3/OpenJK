@@ -30,6 +30,7 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 #include "bg_public.h"
 #include "bg_vehicles.h"
 #include "g_public.h"
+#include "config.h"
 
 typedef struct gentity_s gentity_t;
 typedef struct gclient_s gclient_t;
@@ -44,7 +45,7 @@ extern vec3_t gPainPoint;
 //==================================================================
 
 // the "gameversion" client command will print this plus compile date
-#define	GAMEVERSION	"OpenJK"
+#define	GAMEVERSION CONFIG_GAMENAME
 
 #define SECURITY_LOG "security.log"
 
