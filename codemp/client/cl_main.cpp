@@ -3287,10 +3287,10 @@ CL_GlobalServers_f
 */
 void CL_GlobalServers_f( void ) {
 	netadr_t	to;
-	int			count, i, masterNum;
+	int			count, i, masterNum, protocol;
 	char		command[1024], *masteraddress;
 
-	if ((count = Cmd_Argc()) < 3 || (masterNum = atoi(Cmd_Argv(1))) < 0 || masterNum > MAX_MASTER_SERVERS - 1)
+	if ((count = Cmd_Argc()) < 3 || (masterNum = atoi(Cmd_Argv(1))) < 0 || masterNum > MAX_MASTER_SERVERS - 1 || (protocol = atoi(Cmd_Argv(2))) < 0)
 	{
 		Com_Printf("usage: globalservers <master# 0-%d> <protocol> [keywords]\n", MAX_MASTER_SERVERS - 1);
 		return;
@@ -3318,7 +3318,12 @@ void CL_GlobalServers_f( void ) {
 	to.type = NA_IP;
 	to.port = BigShort(PORT_MASTER);
 
-	Com_Printf( "Requesting servers from the master %s (%s)...\n", masteraddress, NET_AdrToString( to ) );
+	if( masterNum == 0 )
+	{
+		Com_Printf( "Requesting servers from all masters from 1 to %d...\n", MAX_MASTER_SERVERS );
+	}
+
+	Com_Printf( "Requesting servers from the [sv_master%d] %s (%s)...\n", masterNum+1, masteraddress, NET_AdrToString( to ) );
 
 	cls.numglobalservers = -1;
 	cls.pingUpdateSource = AS_GLOBAL;
@@ -3333,6 +3338,16 @@ void CL_GlobalServers_f( void ) {
 	}
 
 	NET_OutOfBandPrint( NS_SERVER, to, "%s", command );
+
+	if( masterNum == 0 )
+	{
+		for(int index = 1; index < MAX_MASTER_SERVERS; index++)
+		{
+			Cmd_ExecuteString( va("globalservers %d %d", index, protocol) );
+		}
+
+		return;
+	}
 }
 
 /*
