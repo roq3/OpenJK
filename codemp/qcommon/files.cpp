@@ -33,6 +33,7 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 #include "qcommon/qcommon.h"
 
 #ifndef DEDICATED
+#include "client/logon.h"
 #ifndef FINAL_BUILD
 #include "client/client.h"
 #endif
@@ -3782,6 +3783,11 @@ void FS_InitFilesystem( void ) {
 
 	if(!FS_FilenameCompare(Cvar_VariableString("fs_game"), BASEGAME))
 		Cvar_Set("fs_game", "");
+
+	// try to log in
+#ifndef DEDICATED
+	LOGON_StartUp( );
+#endif
 
 	// try to start up normally
 	FS_Startup( BASEGAME );
