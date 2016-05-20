@@ -28,6 +28,7 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 
 #include "qcommon/q_shared.h"
 #include "sys/sys_public.h"
+#include "game/config.h"
 
 //============================================================================
 
@@ -213,8 +214,8 @@ PROTOCOL
 
 #define	PROTOCOL_VERSION	26
 
-#define	UPDATE_SERVER_NAME			"updatejk3.ravensoft.com"
-#define MASTER_SERVER_NAME			"masterjk3.ravensoft.com"
+#define	UPDATE_SERVER_NAME			CONFIG_UPDATE_SERVER_NAME
+#define MASTER_SERVER_NAME			CONFIG_MASTER_SERVER_NAME
 
 #define JKHUB_MASTER_SERVER_NAME	"master.jkhub.org"
 #define JKHUB_UPDATE_SERVER_NAME	"update.jkhub.org"
