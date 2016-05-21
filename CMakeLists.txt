@@ -143,13 +143,8 @@ message("Git revision is ${GIT_SHA1}")
 set(SPEngine "openjk_sp.${Architecture}")
 set(SPGame "jagame${Architecture}")
 set(SPRDVanillaRenderer "rdsp-vanilla_${Architecture}")
-
 set(MPEngine "${ProjectName}.${Architecture}")
 set(MPDed "${ProjectName}ded.${Architecture}")
-
-message("${ProjectName}.${Architecture}")
-message("${ProjectName}ded.${Architecture}")
-
 set(MPVanillaRenderer "rd-vanilla_${Architecture}")
 set(MPGame "jampgame${Architecture}")
 set(MPCGame "cgame${Architecture}")

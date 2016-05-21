@@ -33,12 +33,12 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 
 #define CLIENT_WINDOW_TITLE CONFIG_GAMENAME" (MP)"
 #define CLIENT_CONSOLE_TITLE CONFIG_GAMENAME" Console (MP)"
-#define HOMEPATH_NAME_UNIX "openjk"
-#define HOMEPATH_NAME_WIN "OpenJK"
+#define HOMEPATH_NAME_UNIX CONFIG_GAMENAME_LOWER
+#define HOMEPATH_NAME_WIN CONFIG_GAMENAME
 #define HOMEPATH_NAME_MACOSX HOMEPATH_NAME_WIN
 
 #define	BASEGAME "base"
-#define OPENJKGAME "OpenJK"
+#define OPENJKGAME CONFIG_GAMENAME
 
 //NOTENOTE: Only change this to re-point ICARUS to a new script directory
 #define Q3_SCRIPT_DIR	"scripts"
